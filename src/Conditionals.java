@@ -23,14 +23,30 @@ void main() {
     // to turn on (shooterVelocity = 1) or turn off (shooterVelocity = 0) the
     // shooter motors. Then print the value of `shooterVelocity`. After running,
     // change `shooterEnabled` to `true` and re-run; the code should now print 1.
-    boolean shooterEnabled = false;
+    boolean shooterEnabled = true;
+    int shooterVelocity;
+    if (shooterEnabled==true){
+        shooterVelocity=1;
+        System.out.println(shooterVelocity);
+    } else {
+        shooterVelocity=0;
+        System.out.println(shooterVelocity);
+    }
+
 
 
     // Print "Success!" if `statusCode` is equal to 0. Otherwise, if `statusCode`
     // is NOT EQUAL to 1, print "User exited code." Else, print "There was an error."
     // After running, change `statusCode` to 0, then 2; the code should print
     // "Success!" and "User exited code." respectively.
-    int statusCode = 1;
+    int statusCode = 2;
+    if (statusCode == 0) {
+        System.out.println("Success!");
+    } else if (statusCode != 1) {
+        System.out.println("User Exited Code.");
+    } else {
+        System.out.println("There was an error.");
+    }
 
 
     // If `input` is greater than or equal to 5, print "Controller input detected."
@@ -39,19 +55,33 @@ void main() {
     // After running the code, change `input` to 2; the code should now print
     // "Discarding input."
     int input = 20;
+    if (input>=5) {
+        System.out.println("Controller input detected");
+    } else {
+        System.out.println("Discarding input");
+        input = 0;
+    }
+    drivetrain.setThrottle(input);
 
 
     // If the value of `shooterAngleDeg` exceeds 75 degrees OR is less than 10 degrees,
     // print "The shooter has been stopped." Otherwise, print "The shooter is moving."
     // After running, change `shooterAngleDeg` to 76; the code should now print
     // "The shooter has been stopped."
-    int shooterAngleDeg = 54;
+    int shooterAngleDeg = 76;
+    if (shooterAngleDeg > 75 | shooterAngleDeg < 10) {
+        System.out.println("The shooter has been stopped.");
+    } else {
+        System.out.println("The shooter is moving.");
+    }
 
 
     // Define a variable `intakeEnabled` whose value is the inverse of `intakeDisabled`,
     // using logical operators. Then print the value of `intakeEnabled`.
     // After running, change `intakeDisabled` to `true`; the code should now print
     // `false`.
-    boolean intakeDisabled = false;
+    boolean intakeDisabled = true;
+    boolean intakeEnabled = !intakeDisabled;
+    System.out.println(intakeEnabled);
 
 }
